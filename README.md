@@ -2,11 +2,11 @@
 
 A react component which observes when an element becomes in or out of the viewport you provided. Useful for lazy loading and sending tracking events to analytics on scroll.
 
-Internally this makes use of another library I created called (https://github.com/mintuz/horizon)[Horizon] and tracking of elements is done via the Intersection Observer API allowing for performant tracking on the web as it's done off the main thread reducing jank whilst scrolling.
+Internally this makes use of another library I created called [Horizon](https://github.com/mintuz/horizon) and tracking of elements is done via the Intersection Observer API allowing for performant tracking on the web as it's done off the main thread reducing jank whilst scrolling.
 
 This component makes use of the render props and state reducer patterns
-* (https://blog.kentcdodds.com/the-state-reducer-pattern-%EF%B8%8F-b40316cfac57)[State reducer]
-* (https://reactjs.org/docs/render-props.html)[render props]
+* [State reducer](https://blog.kentcdodds.com/the-state-reducer-pattern-%EF%B8%8F-b40316cfac57)
+* [render props](https://reactjs.org/docs/render-props.html)
 
 ## Install
 
