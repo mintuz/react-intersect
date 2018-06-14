@@ -26,7 +26,13 @@ describe('ReactIntersect', () => {
         const onEntry = jest.fn();
         const onExit = jest.fn();
 
-        mount(<ReactIntersect onExit={onExit} onEntry={onEntry} render={renderProp} />);
+        mount(
+            <ReactIntersect
+                onExit={onExit}
+                onEntry={onEntry}
+                render={renderProp}
+            />
+        );
 
         mockEvents.onEntry();
 
@@ -42,7 +48,13 @@ describe('ReactIntersect', () => {
         const onEntry = jest.fn();
         const onExit = jest.fn();
 
-        mount(<ReactIntersect onExit={onExit} onEntry={onEntry} render={renderProp} />);
+        mount(
+            <ReactIntersect
+                onExit={onExit}
+                onEntry={onEntry}
+                render={renderProp}
+            />
+        );
 
         mockEvents.onExit();
 
