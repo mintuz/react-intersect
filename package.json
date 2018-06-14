@@ -1,0 +1,63 @@
+{
+  "name": "@mintuz/react-intersect",
+  "version": "1.0.0",
+  "description": "A react library that monitors visibility of react components within the viewport and visible parts of overflow scroll elements",
+  "main": "index.js",
+  "homepage": "http://github.com/mintuz/react-intersect/tree/master",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mintuz/react-intersect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mintuz/react-intersect/issues"
+  },
+  "scripts": {
+    "prettier": "prettier --arrow-parens=always --single-quote --tab-width=4 --print-width=80 \"./src/**/*.js\" \"./test/**/*js\" --write",
+    "babel": "babel src --out-dir dist --ignore '**/*.test.js'",
+    "test": "npm run prettier && jest --coverage --no-cache",
+    "build": "npm run prettier && npm run babel",
+    "jest": "jest --watch"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      ".node_modules/"
+    ],
+    "setupFiles": [
+      "./jest-setup.js"
+    ]
+  },
+  "keywords": [
+    "Intersection",
+    "Observer",
+    "Lazy",
+    "Loading",
+    "Lazy",
+    "Load",
+    "Lazy",
+    "Scroll",
+    "Lazy",
+    "Viewport",
+    "In view"
+  ],
+  "author": "Adam Bulmer",
+  "license": "MIT",
+  "dependencies": {
+    "react": "16.3.2",
+    "react-dom": "16.3.2",
+    "@mintuz/horizon": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.9.1",
+    "babel-jest": "^20.0.3",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.7.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.5.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^20.0.4",
+    "prettier": "^1.10.2"
+  }
+}
