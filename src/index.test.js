@@ -15,6 +15,7 @@ import Horizon from '@mintuz/horizon';
 describe('ReactIntersect', () => {
     beforeEach(() => {
         mockEvents = {};
+        Horizon.mockClear();
     });
 
     test('onEntry callback is triggered when element in view', () => {
@@ -23,8 +24,9 @@ describe('ReactIntersect', () => {
         };
 
         const onEntry = jest.fn();
+        const onExit = jest.fn();
 
-        mount(<ReactIntersect onEntry={onEntry} render={renderProp} />);
+        mount(<ReactIntersect onExit={onExit} onEntry={onEntry} render={renderProp} />);
 
         mockEvents.onEntry();
 
@@ -37,9 +39,10 @@ describe('ReactIntersect', () => {
             return <div />;
         };
 
+        const onEntry = jest.fn();
         const onExit = jest.fn();
 
-        mount(<ReactIntersect onExit={onExit} render={renderProp} />);
+        mount(<ReactIntersect onExit={onExit} onEntry={onEntry} render={renderProp} />);
 
         mockEvents.onExit();
 
@@ -54,9 +57,9 @@ describe('ReactIntersect', () => {
 
         mount(<ReactIntersect render={renderProp} />);
 
-        mockEvents.onEntry();
+        mockEvents.onEntry(true);
 
-        expect(renderProp.mock.calls[0][0]).toEqual(true);
+        expect(renderProp.mock.calls[1][0]).toEqual(true);
     });
 
     test('inView passed as false to renderProp when element is not in view', () => {
