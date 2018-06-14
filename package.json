@@ -1,6 +1,6 @@
 {
   "name": "@mintuz/react-intersect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A react library that monitors visibility of react components within the viewport and visible parts of overflow scroll elements",
   "main": "index.js",
   "homepage": "http://github.com/mintuz/react-intersect/tree/master",
