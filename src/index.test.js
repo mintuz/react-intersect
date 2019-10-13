@@ -18,7 +18,7 @@ describe('ReactIntersect', () => {
         Horizon.mockClear();
     });
 
-    describe.only('Hook', () => {
+    describe('Hook', () => {
         const FakeComponent = (props) => {
             const [inView, ref] = useIntersect(props);
             return (
