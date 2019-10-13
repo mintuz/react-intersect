@@ -1,6 +1,6 @@
 {
   "name": "@mintuz/react-intersect",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A react library that monitors visibility of react components within the viewport and visible parts of overflow scroll elements",
   "main": "index.js",
   "homepage": "http://github.com/mintuz/react-intersect/tree/master",
@@ -42,9 +42,9 @@
   "author": "Adam Bulmer",
   "license": "MIT",
   "dependencies": {
-    "react": "16.3.2",
-    "react-dom": "16.3.2",
-    "@mintuz/horizon": "^2.0.0"
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "@mintuz/horizon": "^2.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
