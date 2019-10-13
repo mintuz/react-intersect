@@ -1,6 +1,45 @@
-import React from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import Horizon from '@mintuz/horizon';
+
+export const useIntersect = ({
+    triggerOnce = false,
+    intersectionObserverConfig
+}) => {
+    const instanceRef = useRef(null);
+    const [inView, setInView] = useState(false);
+
+    const onEntry = () => {
+        setInView(true);
+    };
+
+    const onExit = () => {
+        setInView(false);
+    };
+
+    const ref = useCallback(
+        (node) => {
+            if (instanceRef.current) {
+                instanceRef.current.unobserve();
+            }
+
+            if (node) {
+                const instance = Horizon({
+                    onEntry,
+                    onExit,
+                    triggerOnce,
+                    toObserve: node,
+                    intersectionObserverConfig
+                });
+
+                instanceRef.current = instance;
+            }
+        },
+        [triggerOnce, intersectionObserverConfig]
+    );
+
+    return [inView, ref];
+};
 
 export default class ReactIntersect extends React.Component {
     state = {

@@ -8,7 +8,7 @@ jest.mock('@mintuz/horizon', () => {
 });
 
 import React from 'react';
-import ReactIntersect from './';
+import ReactIntersect, { useIntersect } from './';
 import { mount } from 'enzyme';
 import Horizon from '@mintuz/horizon';
 
@@ -16,6 +16,38 @@ describe('ReactIntersect', () => {
     beforeEach(() => {
         mockEvents = {};
         Horizon.mockClear();
+    });
+
+    describe('Hook', () => {
+        const FakeComponent = (props) => {
+            const [inView, ref] = useIntersect(props);
+            return (
+                <div ref={ref} data-testid="fake-component">
+                    {`In view: ${inView}`}
+                </div>
+            );
+        };
+
+        test('in view returns false by default', () => {
+            const instance = mount(<FakeComponent />);
+            expect(instance.text()).toEqual('In view: false');
+        });
+
+        test('in view returns true when in view', () => {
+            const instance = mount(<FakeComponent />);
+            mockEvents.onEntry();
+            expect(instance.text()).toEqual('In view: true');
+        });
+
+        test('in view returns false when out of view', () => {
+            const instance = mount(<FakeComponent />);
+
+            mockEvents.onEntry();
+            expect(instance.text()).toEqual('In view: true');
+
+            mockEvents.onExit();
+            expect(instance.text()).toEqual('In view: false');
+        });
     });
 
     test('onEntry callback is triggered when element in view', () => {
