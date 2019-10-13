@@ -26,6 +26,21 @@ This component makes use of the render props and state reducer patterns
 | intersectionObserverConfig | `{ root: null, rootMargin: '35%', threshold: 0 }` | Options passed to [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) | `{ root: null rootMargin: '35%', threshold: 0 }` |
 | stateReducer               | `(prevState, changes) => {return {inView:false}}` | Allow for external manipulation of the internal state of react-intersect                                                 | N/A                                              |
 
+### Hook API
+
+```
+const ReactIntersectHook = () => {
+  const [inView, ref] = useIntersect({
+    triggerOnce: false
+  });
+  return (
+    <div ref={ref}>
+      {inView ? "I am in view " : "I am not view"}
+    </div>
+  );
+};
+```
+
 ### Demo
 
 https://codesandbox.io/s/vvm485k697
